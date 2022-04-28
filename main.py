@@ -98,10 +98,10 @@ print('검색해야할 페이지 수 : ', api_page_count)
 # page_run(api_page_count)
 
 if __name__ == "__main__":
-  page_run(1060)
-  # print(item_list)
-  print('총 삭제된 항목의 수 = ', total_delete_data_count)
-  print('총 통과된 항목의 수 = ', total_pass_data_count)
+    page_run(1060)
+    # print(item_list)
+    print('총 삭제된 항목의 수 = ', total_delete_data_count)
+    print('총 통과된 항목의 수 = ', total_pass_data_count)
 
 
 # 제품명에서 스킨, 토너 단어 찾아서 화장품 종류 항목 만들기
