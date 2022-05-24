@@ -1,5 +1,3 @@
-# Python3 샘플 코드 #
-# -*-coding:utf-8-*-
 import requests
 import json
 
