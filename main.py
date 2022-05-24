@@ -3,6 +3,7 @@
 import requests
 import json
 from api_data_count import get_page_count
+from check_cosemtic_category import check_data_cosemtic_category
 
 url = 'http://apis.data.go.kr/1471000/FtnltCosmRptPrdlstInfoService/getRptPrdlstInq'
 params = {'serviceKey': 'RzZpuK2Y2fzMk+xUlOR6G0NaRPOkBX9LSniKx170jnDBpg1/rlcT13RgMpS5JYCAlHt03aQGLYk70mRB8d5aZg==',
@@ -74,11 +75,14 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
     # item_name 이 exclude_word의 모든 항목과 일치하지 않으면 넣어라
     for word in exclude_word:
         if word in item_name:
-            print('제품명:', item_name, ', 포함 단어:', word)
+            #print('제품명:', item_name, ', 포함 단어:', word)
             break
         else:
             if exclude_word[-1] == word:
-                empty_list.append(item_name)
+                category = check_data_cosemtic_category(item_name)  # 화장품 종류 분류
+                empty_list.append(category)
+
+                empty_list.append(item_name)  # 화장품 이름 넣기
 
                 item_ph = item['ITEM_PH']  # str 타입으로 출력됨
                 # print(item_ph)
@@ -92,14 +96,14 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
                 pass_data_count += 1
 
 
-# 전체 데이터 수 / 100 으로  전체 페이지를 알아내서 그 페이지 값으로 page_run 함수 돌리는 코드 만들기
+# 전체 데이터 수 / 100 으로 전체 페이지를 알아내서 그 페이지 값으로 page_run 함수 돌리는 코드 만들기
 api_page_count = get_page_count()
 print('검색해야할 페이지 수 : ', api_page_count)
 # page_run(api_page_count)
 
 if __name__ == "__main__":
     page_run(1060)
-    # print(item_list)
+    print(item_list)
     print('총 삭제된 항목의 수 = ', total_delete_data_count)
     print('총 통과된 항목의 수 = ', total_pass_data_count)
 
