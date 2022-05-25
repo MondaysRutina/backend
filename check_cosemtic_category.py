@@ -3,14 +3,14 @@ def check_data_cosemtic_category(item_name):
     cream = {'크림': '크림', '젤크림': '크림', '수분크림': '크림', '수딩크림': '크림', '보습크림': '크림', '영양크림': '크림', '멀티밤': '크림',
              '모이스처라이저': '크림'}
     essense = {'세럼': '에센스', '에센스': '에센스', '앰플': '에센스'}
-    lotion = {'로션': '로션', '에멀젼': '로션'}
+    lotion = {'로션': '로션', '에멀전': '로션', '에멀젼': '로션'}
     allinone = {'올인원': '올인원'}
     eyecare = {'아이크림': '아이케어', '아이세럼': '아이케어', '아이젤크림': '아이케어', '아이에센스': '아이케어', '아이밤': '아이케어'}
     mist = {'미스트': '기타', '스킨미스트': '기타', '페이셜미스트': '기타'}
     faceoil = {'페이스오일': '기타'}
     gel = {'젤': '기타', '수딩젤': '기타'}
 
-    category_list = [skin, cream, essense, lotion, allinone, eyecare, mist, faceoil, gel]
+    category_list = [lotion, skin, cream, essense, allinone, eyecare, mist, faceoil, gel]
 
     category = find_category(category_list, item_name)
     if category == None:

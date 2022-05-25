@@ -5,6 +5,7 @@ import json
 from api_data_count import get_page_count
 from check_cosemtic_category import check_data_cosemtic_category
 from read_file_exclude_word import exclude_word_list
+from make_file_cosmetic_data import make_file
 
 url = 'http://apis.data.go.kr/1471000/FtnltCosmRptPrdlstInfoService/getRptPrdlstInq'
 params = {'serviceKey': 'RzZpuK2Y2fzMk+xUlOR6G0NaRPOkBX9LSniKx170jnDBpg1/rlcT13RgMpS5JYCAlHt03aQGLYk70mRB8d5aZg==',
@@ -16,7 +17,7 @@ total_pass_data_count = 0  # 2017년 이후 등록 + 스킨케어 분류 통과�
 total_delete_data_count = 0  # 전체 페이지에서 총 삭제된 데이터의 수
 
 exclude_word = exclude_word_list()
-print(exclude_word)
+# print(exclude_word)
 
 
 def page_run(page_num):
@@ -70,7 +71,7 @@ def check_data_report_date(item, pageNo):  # 2017년 이후에 등록된 데이�
 
 def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분류하는 작업
     empty_list = []
-    empty_list.append(pageNo)
+    # empty_list.append(pageNo)
     item_name = item['ITEM_NAME']
 
     # item_name 이 exclude_word의 모든 항목과 일치하지 않으면 넣어라
@@ -100,13 +101,15 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
 # 전체 데이터 수 / 100 으로 전체 페이지를 알아내서 그 페이지 값으로 page_run 함수 돌리는 코드 만들기
 api_page_count = get_page_count()
 print('검색해야할 페이지 수 : ', api_page_count)
-# page_run(api_page_count)
+
 
 if __name__ == "__main__":
+    # page_run(api_page_count)
     page_run(1060)
-    print(item_list)
+
+    # print(item_list) # ['스킨', '스킨푸드유자수분씨비타아이마스크', '6.0']
+    make_file(item_list)  # 분류한 데이터를 엑셀 파일에 쓰기
+
     print('총 삭제된 항목의 수 = ', total_delete_data_count)
     print('총 통과된 항목의 수 = ', total_pass_data_count)
 
-
-# 제품명에서 스킨, 토너 단어 찾아서 화장품 종류 항목 만들기
