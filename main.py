@@ -4,6 +4,7 @@ import requests
 import json
 from api_data_count import get_page_count
 from check_cosemtic_category import check_data_cosemtic_category
+from read_file_exclude_word import exclude_word_list
 
 url = 'http://apis.data.go.kr/1471000/FtnltCosmRptPrdlstInfoService/getRptPrdlstInq'
 params = {'serviceKey': 'RzZpuK2Y2fzMk+xUlOR6G0NaRPOkBX9LSniKx170jnDBpg1/rlcT13RgMpS5JYCAlHt03aQGLYk70mRB8d5aZg==',
@@ -14,8 +15,8 @@ pass_data_count = 0  # 한 페이지에서 통과한 데이터의 수
 total_pass_data_count = 0  # 2017년 이후 등록 + 스킨케어 분류 통과한 데이터의 수
 total_delete_data_count = 0  # 전체 페이지에서 총 삭제된 데이터의 수
 
-exclude_word = ['선크림', '썬크림', '선로션', '썬로션', '선스프레이', '썬스프레이', '선블록', '썬블록', '선스틱', '썬스틱', '선쿠션', '썬쿠션', '선팩트', '썬팩트',
-                '에스피에프', '파운데이션']
+exclude_word = exclude_word_list()
+print(exclude_word)
 
 
 def page_run(page_num):
