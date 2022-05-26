@@ -1,8 +1,8 @@
 import shutil
 from openpyxl import Workbook
 
-filepath1 = './cosmetic_data.xlsx'
-filepath2 = './use_api_cosmetic_data_최종.xlsx'
+filepath1 = './cosmetic_data_files/cosmetic_data.xlsx'
+filepath2 = './cosmetic_data_files/final_cosmetic_data.xlsx'
 
 def make_file(item_list):
     write_wb = Workbook()

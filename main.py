@@ -1,7 +1,7 @@
 import requests
 import json
 from api_data_count import get_page_count
-from check_cosemtic_category import check_data_cosemtic_category
+from check_cosmetic_category import check_data_cosmetic_category
 from read_file_exclude_word import exclude_word_list
 from make_file_cosmetic_data import make_file
 
@@ -73,7 +73,7 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
             break
         else:
             if exclude_word[-1] == word:
-                category = check_data_cosemtic_category(item_name)  # 화장품 종류 분류
+                category = check_data_cosmetic_category(item_name)  # 화장품 종류 분류
                 empty_list.append(category) # 화장품 종류 넣기
 
                 empty_list.append(item_name)  # 화장품 이름 넣기
@@ -94,8 +94,8 @@ if __name__ == "__main__":
     api_page_count = get_page_count()  # (전체 데이터 수 / 100)으로 전체 페이지 수를 알아냄
     print('검색해야할 페이지 수 : ', api_page_count)
 
-    # page_run(api_page_count) # 전체 페이지 수 만큰 프로그램 실행함
-    page_run(1060) # 1060 페이지까지 프로그램 실행함
+    page_run(api_page_count) # 전체 페이지 수 만큰 프로그램 실행함
+    # page_run(1060) # 1060 페이지까지 프로그램 실행함
 
     # print(item_list) # ['스킨', '스킨푸드유자수분씨비타아이마스크', '6.0']
     make_file(item_list)  # 분류한 데이터를 엑셀 파일에 쓰기

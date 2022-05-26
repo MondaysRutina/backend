@@ -2,7 +2,7 @@ from openpyxl import load_workbook
 
 def exclude_word_list():
   # 셀 값이 함수 및 수식일 경우 data_only=Ture로 해줘야 수식이 아닌 결과값만 받음
-  load_wb = load_workbook("화장품 제외 리스트.xlsx", data_only=True)
+  load_wb = load_workbook("./cosmetic_data_files/화장품 제외 리스트.xlsx", data_only=True)
   load_ws = load_wb['Sheet1'] #시트 이름으로 불러오기
 
   columns = load_ws['A:L'] # 열 범위 지정

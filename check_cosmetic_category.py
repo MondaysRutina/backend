@@ -1,4 +1,4 @@
-def check_data_cosemtic_category(item_name):
+def check_data_cosmetic_category(item_name):
     skin = {'스킨': '스킨', '토너': '스킨'}
     cream = {'크림': '크림', '젤크림': '크림', '수분크림': '크림', '수딩크림': '크림', '보습크림': '크림', '영양크림': '크림', '멀티밤': '크림',
              '모이스처라이저': '크림'}
