@@ -1,4 +1,4 @@
-# 아래 코드를 기반으로 main.py에서 기능 구현 완료함
+# 아래 코드를 기반으로 main.py에서 check_data_report_date(item, pageNo) 함수로 기능 구현 완료함
 
 import requests
 import json

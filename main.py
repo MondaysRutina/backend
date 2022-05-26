@@ -1,5 +1,3 @@
-# Python3 샘플 코드 #
-# -*-coding:utf-8-*-
 import requests
 import json
 from api_data_count import get_page_count
@@ -13,7 +11,7 @@ params = {'serviceKey': 'RzZpuK2Y2fzMk+xUlOR6G0NaRPOkBX9LSniKx170jnDBpg1/rlcT13R
 
 item_list = []  # items에서 추출한 데이터를 넣을 list
 pass_data_count = 0  # 한 페이지에서 통과한 데이터의 수
-total_pass_data_count = 0  # 2017년 이후 등록 + 스킨케어 분류 통과한 데이터의 수
+total_pass_data_count = 0  # 2017년 이후 등록된 데이터인지 확인 -> 스킨케어 분류 통과한 데이터의 수
 total_delete_data_count = 0  # 전체 페이지에서 총 삭제된 데이터의 수
 
 exclude_word = exclude_word_list()
@@ -28,41 +26,35 @@ def page_run(page_num):
         analyze_response(params)
 
 
-def analyze_response(params):
+def analyze_response(params):  # api를 통해 넘어오는 데이터를 분석함
     response = requests.get(url, params=params)
     re_decode = response.content.decode('utf-8')  # 바이트 타입으로 넘어온 데이터를 utf-8 형식으로 바꿔 문자열로 나타냄
     re_dict = json.loads(re_decode)  # dict 타입이 된다.
-    # print(re_dict)
 
     re_body = re_dict.get('body')  # re_body 는 dict 타입
-    # print(re_body)
 
     pageNo = re_body.get('pageNo')  # int 타입
-    # print(pageNo, end = ' ')
-    # totalCount = re_body.get('totalCount')# int 타입, 데이터 수: 211850
-    # print(totalCount, end = ' ')
+    # totalCount = re_body.get('totalCount')# int 타입
     # numOfRows = re_body.get('numOfRows')# int 타입
-    # print(numOfRows, end = ' ')
     items = re_body.get('items')  # 리스트 타입임, 리스트 타입 안에 numOfRows 개수 만큼 딕셔너리 타입으로 들어가 있다.
-    # print(items)
 
     global total_delete_data_count, total_pass_data_count, pass_data_count
     for x in items:
         check_data_report_date(x, pageNo)  # 2017년 이후에 등록된 데이터인지 확인
     print('페이지 번호 : ', pageNo, ' , 통과한 데이터 수 : ', pass_data_count, ', 삭제된 데이터 수 : ', 100 - pass_data_count)
 
-    total_delete_data_count += (100 - pass_data_count)
-    total_pass_data_count += pass_data_count
-    pass_data_count = 0
+    total_delete_data_count += (100 - pass_data_count) # 삭제된 데이터 수를 누적함
+    total_pass_data_count += pass_data_count # 통과한 데이터 수를 투적함
+    pass_data_count = 0 # 한 페이지에서 통과한 데이터 수를 다시 0으로 초기화 함
 
 
-def check_data_report_date(item, pageNo):  # 2017년 이후에 등록된 데이터인지 확인
-    date_seq = item['COSMETIC_REPORT_SEQ']
-    date_seq = list(date_seq)  # list 타입으로 변경
+def check_data_report_date(item, pageNo):  # 2017년 이후에 등록된 데이터인지 확인하는 작업
+    date_seq = item['COSMETIC_REPORT_SEQ']  # 2008000229 형태로 출력됨
+    date_seq = list(date_seq)  # 문자를 자르기 위해 list 타입으로 변경
 
-    num_date = ''
+    num_date = ''  # 화장품이 보고된 연도를 담을 변수
     for x in date_seq[0:4]:
-        num_date += x
+        num_date += x  # 2008000229 에서 앞에 4자리만 잘라 붙여서 보고 연도인 2008이 되도록 함
     num_date = int(num_date)  # 문자를 int으로 바꿔서 넣어줌
 
     if num_date >= 2017:
@@ -82,7 +74,7 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
         else:
             if exclude_word[-1] == word:
                 category = check_data_cosemtic_category(item_name)  # 화장품 종류 분류
-                empty_list.append(category)
+                empty_list.append(category) # 화장품 종류 넣기
 
                 empty_list.append(item_name)  # 화장품 이름 넣기
 
@@ -91,21 +83,19 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
                 if item_ph is None:  # ph 입력값이 없는 경우 검사
                     empty_list.append(-1)
                 else:
-                    empty_list.append(item_ph)
+                    empty_list.append(item_ph)  # api에서 넘어오는 ph 입력값으로는 숫자 또는 '해당사항없음' 두 경우가 있음
 
                 item_list.append(empty_list)
                 global pass_data_count
-                pass_data_count += 1
-
-
-# 전체 데이터 수 / 100 으로 전체 페이지를 알아내서 그 페이지 값으로 page_run 함수 돌리는 코드 만들기
-api_page_count = get_page_count()
-print('검색해야할 페이지 수 : ', api_page_count)
+                pass_data_count += 1 # 통과한 데이터 수에 1 추가
 
 
 if __name__ == "__main__":
-    # page_run(api_page_count)
-    page_run(1060)
+    api_page_count = get_page_count()  # (전체 데이터 수 / 100)으로 전체 페이지 수를 알아냄
+    print('검색해야할 페이지 수 : ', api_page_count)
+
+    # page_run(api_page_count) # 전체 페이지 수 만큰 프로그램 실행함
+    page_run(1060) # 1060 페이지까지 프로그램 실행함
 
     # print(item_list) # ['스킨', '스킨푸드유자수분씨비타아이마스크', '6.0']
     make_file(item_list)  # 분류한 데이터를 엑셀 파일에 쓰기
