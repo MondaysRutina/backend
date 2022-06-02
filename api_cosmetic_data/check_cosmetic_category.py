@@ -10,7 +10,7 @@ def check_data_cosmetic_category(item_name):
     faceoil = {'페이스오일': '기타'}
     gel = {'젤': '기타', '수딩젤': '기타'}
 
-    category_list = [lotion, skin, cream, essense, allinone, eyecare, mist, faceoil, gel]
+    category_list = [lotion, skin, eyecare, cream, essense, allinone, mist, faceoil, gel]
 
     category = find_category(category_list, item_name)
     if category == None:
