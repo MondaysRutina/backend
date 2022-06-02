@@ -72,22 +72,25 @@ def check_data_word(item, pageNo):  # 제품명으로 스킨케어 제품만 분
             #print('제품명:', item_name, ', 포함 단어:', word)
             break
         else:
-            if exclude_word[-1] == word:
+            if exclude_word[-1] == word: # exclude_word(제외 항목) 리스트의 마지막 word(단어)가 같으면 = 마지막 word까지 체크를 했다면
                 category = check_data_cosmetic_category(item_name)  # 화장품 종류 분류
-                empty_list.append(category) # 화장품 종류 넣기
-
-                empty_list.append(item_name)  # 화장품 이름 넣기
-
-                item_ph = item['ITEM_PH']  # str 타입으로 출력됨
-                # print(item_ph)
-                if item_ph is None:  # ph 입력값이 없는 경우 검사
-                    empty_list.append(-1)
+                if category == '': # category가 일치하는게 없어서 빈 문자열이 넘어왔다면
+                    break # 엑셀에 데이터를 담지 않을거라서 나옴
                 else:
-                    empty_list.append(item_ph)  # api에서 넘어오는 ph 입력값으로는 숫자 또는 '해당사항없음' 두 경우가 있음
+                    empty_list.append(category) # 화장품 종류 넣기
 
-                item_list.append(empty_list)
-                global pass_data_count
-                pass_data_count += 1 # 통과한 데이터 수에 1 추가
+                    empty_list.append(item_name)  # 화장품 이름 넣기
+
+                    item_ph = item['ITEM_PH']  # str 타입으로 출력됨
+                    # print(item_ph)
+                    if item_ph is None:  # ph 입력값이 없는 경우 검사
+                        empty_list.append(-1)
+                    else:
+                        empty_list.append(item_ph)  # api에서 넘어오는 ph 입력값으로는 숫자 또는 '해당사항없음' 두 경우가 있음
+
+                    item_list.append(empty_list)
+                    global pass_data_count
+                    pass_data_count += 1 # 통과한 데이터 수에 1 추가
 
 
 if __name__ == "__main__":
