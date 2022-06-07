@@ -27,6 +27,7 @@ out/
 !**/src/test/**/out/
 logs
 application-secret.properties
+.idea_backup/
 
 ### NetBeans ###
 /nbproject/private/
