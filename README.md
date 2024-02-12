@@ -29,7 +29,7 @@
 ```
 
 ## 3. 아키텍쳐 
-![개발 환경](image/개발-환경.png)</br>
+![개발 환경](image/개발환경.png)</br>
 
 ## 4. ERD 
 ![ERD](image/ERD.png)</br>
@@ -45,4 +45,4 @@
 4. 전처리된 화장품 데이터를 엑셀 파일로 출력하기 ➡ [final_cosmetic_data.xlsx](api_cosmetic_data/cosmetic_data_files/final_cosmetic_data.xlsx)
 
 ## 6. 주요 기능
-![주요 기능](image/주요-기능.png)</br>
+![주요 기능](image/주요기능.png)</br>
