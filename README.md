@@ -40,7 +40,7 @@
 
 ### 5-2. 데이터 전처리 과정 (issue https://github.com/MondaysRutina/backend/issues/3) <br/>
 1. 제품이 보고서에 등록된 날짜를 검사하여 2017년 이후에 등록된 데이터만 추출하기
-2. 직접 작성한 [“화장품 제외 리스트”](api_cosmetic_data/cosmetic_data_files/화장품-제외-리스트.xlsx)를 활용하여 스킨케어 제품 외의 화장품 제외하기
+2. 직접 작성한 [“화장품 제외 리스트”](api_cosmetic_data/cosmetic_data_files/화장품%20제외%20리스트.xlsx)를 활용하여 스킨케어 제품 외의 화장품 제외하기
 3. 제품명에서 카테고리 특징 단어를 찾아내어 카테고리별로 화장품 분류하기
 4. 전처리된 화장품 데이터를 엑셀 파일로 출력하기 ➡ [final_cosmetic_data.xlsx](api_cosmetic_data/cosmetic_data_files/final_cosmetic_data.xlsx)
 
