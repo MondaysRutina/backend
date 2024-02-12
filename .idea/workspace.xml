@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7ddf2c9-bf78-40d3-b094-997c97d3a3de" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_cosmetic_data/check_cosmetic_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/api_cosmetic_data/check_cosmetic_category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_cosmetic_data/cosmetic_data_files/cosmetic_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/api_cosmetic_data/cosmetic_data_files/cosmetic_data.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_cosmetic_data/cosmetic_data_files/final_cosmetic_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/api_cosmetic_data/cosmetic_data_files/final_cosmetic_data.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +37,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1654148854" />
+                    <option name="branchName" value="issue/#6" />
+                    <option name="lastUsedInstant" value="1654230936" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="issue/#3" />
-                    <option name="lastUsedInstant" value="1654147951" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1654148854" />
                   </RecentBranch>
                 </list>
               </option>
@@ -151,7 +148,6 @@
       <workItem from="1652679653779" duration="606000" />
       <workItem from="1652902722637" duration="30609000" />
       <workItem from="1653576466897" duration="6803000" />
-      <workItem from="1654160044912" duration="2221000" />
     </task>
     <servers />
   </component>
