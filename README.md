@@ -4,6 +4,7 @@
 - 프로젝트 기간 : 2022년 1월 ~ 2022년 6월 9일
 - 팀 구성 : Front-End 3, Back-End 2
 - 팀명 : 먼데이즈(Mondays)
+- [노션 개발 노트](https://jinhui-portfolio.notion.site/Rutina-5f33d4edc4374eb79e19e3f11161d96b?pvs=4)
 
 ## 목차
 1. [배경](#1-배경)
