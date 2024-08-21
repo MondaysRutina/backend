@@ -4,11 +4,12 @@
 - 프로젝트 기간 : 2022년 1월 ~ 2022년 6월 9일
 - 팀 구성 : Front-End 3, Back-End 2
 - 팀명 : 먼데이즈(Mondays)
-- [노션 개발 노트](https://jinhui-portfolio.notion.site/Rutina-5f33d4edc4374eb79e19e3f11161d96b?pvs=4)
+
+<a href="https://jinhui-portfolio.notion.site/Rutina-5f33d4edc4374eb79e19e3f11161d96b?pvs=4" target="_blank">노션 개발 노트 (프로젝트 진행사항 기록)</a>
 
 ## 목차
 1. [배경](#1-배경)
-2. [개발 환경](#2-개발-환경)
+2. [개발 환경 [Skills]](#2-개발-환경-[Skills])
 3. [아키텍쳐](#3-아키텍쳐)
 4. [ERD](#4-ERD)
 5. [화장품 데이터 준비](#5-화장품-데이터-준비)
@@ -16,19 +17,16 @@
 
 ## 1. 배경
 - 코로나 19로 인한 스킨케어 관심도 증가<br/>
-    마스크를 착용하는 기간이 길어지면서 화장품 업계에서 메이크업 제품보다 스킨케어 제품에 관심이 늘어나는 것을 알 수 있다.<br/>
-    장시간 마스크 착용으로 발생하는 피부 고민 해소를 위한 맞춤형 스킨케어 제품의 추천과 자신만의 스킨케어 루틴 설계가 필요하다고 생각하였다.
-
+  - 마스크를 착용하는 기간이 길어지면서 화장품 업계에서 메이크업 제품보다 스킨케어 제품에 관심이 늘어나는 것을 알 수 있다.<br/>
+  - 장시간 마스크 착용으로 발생하는 피부 고민 해소를 위한 맞춤형 스킨케어 제품의 추천과 자신만의 스킨케어 루틴 설계가 필요하다고 생각하였다.
 - 참고한 어플 : 스킨로그, 화해
 
-## 2. 개발 환경
-```
-* Language : Java, Python, PHP
-* DB : MySQL 8.0
-* Cloud : AWS
-* Tools : Figma, Notion
-* IDE : Android Studio, PyCharm
-```
+## 2. 개발 환경 [Skills]
+- Language : Java, Python, PHP
+- DB : MySQL 8.0
+- Cloud : AWS EC2
+- Tools : Figma, Notion
+- IDE : Android Studio, PyCharm
 
 ## 3. 아키텍쳐 
 ![개발 환경](image/개발환경.png)</br>
