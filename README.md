@@ -1,11 +1,9 @@
 # Rutina - 피부 일기를 기록하는 어플
 **개인의 피부와 스킨 케어 루틴 개선을 위한, Rutina**
 - 과목 : 2022년도 4학년 1학기 캡스톤디자인2 
-- 프로젝트 기간 : 2022년 1월 ~ 2022년 6월 9일
+- 프로젝트 기간 : 2022년 3월 ~ 2022년 6월 9일
 - 팀 구성 : Front-End 3, Back-End 2
 - 팀명 : 먼데이즈(Mondays)
-
-<a href="https://jinhui-portfolio.notion.site/Rutina-5f33d4edc4374eb79e19e3f11161d96b?pvs=4" target="_blank">노션 개발 노트 (프로젝트 진행사항 기록)</a>
 
 ## 목차
 1. [배경](#1-배경)
